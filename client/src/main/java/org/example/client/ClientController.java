@@ -16,4 +16,9 @@ public class ClientController {
     public String ping() {
         return serverExchange.ping();
     }
+
+    @GetMapping("echo")
+    public String echo() {
+        return serverExchange.echo("Hello World!");
+    }
 }
