@@ -1,4 +1,4 @@
-package org.example.sdk;
+package org.example.exchange;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;

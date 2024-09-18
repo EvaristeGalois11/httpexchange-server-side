@@ -1,6 +1,6 @@
-package org.example.server;
+package org.example.controller;
 
-import org.example.sdk.ServerExchange;
+import org.example.exchange.ServerExchange;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
