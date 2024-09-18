@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.PutExchange;
 
-public interface ServerExchange {
+public interface DummyExchange {
     @GetExchange("ping")
     String ping();
 
