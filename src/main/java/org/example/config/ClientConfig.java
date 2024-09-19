@@ -19,8 +19,13 @@ public class ClientConfig {
       ServletWebServerApplicationContext context, RestClient.Builder builder) {
     var port = context.getWebServer().getPort();
     logger.info("Port: {}", port);
-    return HttpServiceProxyFactory.builderFor(
-            RestClientAdapter.create(builder.baseUrl("http://localhost:" + port).build()))
+    var client =
+        builder
+            .baseUrl("http://localhost:" + port)
+            .messageConverters(converters -> converters.addFirst(new AbstractPingMessageConverter()))
+            .build();
+    return HttpServiceProxyFactory.builderFor(RestClientAdapter.create(client))
+        .customArgumentResolver(new PingDtoArgumentResolver())
         .build()
         .createClient(DummyExchange.class);
   }

@@ -1,13 +1,19 @@
 package org.example.exchange;
 
-import org.springframework.web.bind.annotation.RequestParam;
+import org.example.dto.AbstractPing;
+import org.example.dto.PingDto;
 import org.springframework.web.service.annotation.GetExchange;
-import org.springframework.web.service.annotation.PutExchange;
 
 public interface DummyExchange {
-    @GetExchange("ping")
-    String ping();
+  @GetExchange("ping")
+  String ping();
 
-    @PutExchange("echo")
-    String echo(@RequestParam String echo);
+  @GetExchange("ping-dto")
+  PingDto pingDto();
+
+  @GetExchange("ping-dto-param")
+  PingDto pingDtoParam(PingDto pingDto);
+
+  @GetExchange("ping-dto-interface")
+  AbstractPing pingDtoInterface();
 }
